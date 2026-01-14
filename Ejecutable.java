@@ -1,6 +1,7 @@
 package es.studium;
 
 import java.awt.Button;
+import java.awt.Choice;
 import java.awt.Color;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
@@ -15,13 +16,16 @@ import java.util.Scanner;
 
 public class Ejecutable implements ActionListener, WindowListener {
 	
-	Frame vntInicio, vntPruebas, vntCombate, vntCombatientes;
+	Frame vntInicio, vntPrbs, vntCombate, vntCombatientes;
 	
 	Button btnPrbs = new Button("Campo de Pruebas");
 	Button btnAre = new Button("Arena a muerte");
 	Button btnSlct = new Button("Seleccionar");
 	Button btnFight = new Button("¡A pelear!");
 	Button btnExit = new Button("Salir");
+	
+	Choice wpnList = new Choice();
+	Choice armrList = new Choice();
 	
 	GridBagConstraints gbc = new GridBagConstraints();
 	
@@ -62,6 +66,8 @@ public class Ejecutable implements ActionListener, WindowListener {
 		personajes[5] = new Personaje("Sir Pent", "Reptiliano", armas[5], armaduras[3], 10, 20, 110);
 	}
 	
+	
+	
 	public Ejecutable() {
 		
 		inicio();
@@ -94,6 +100,35 @@ public class Ejecutable implements ActionListener, WindowListener {
 
 	private void prbs() {
 		
+		vntInicio.setVisible(false);
+		
+		vntPrbs = new Frame ("Campo de Pruebas");
+		vntPrbs.setLayout(new GridBagLayout());
+		
+		gbc.gridx = 0;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		gbc.insets = new Insets(5, 5, 5, 5);
+		
+		for (Arma wpns: armas) {
+			wpnList.add(wpns.getNombre());
+		}
+		gbc.gridy = 0;
+		vntPrbs.add(wpnList);
+		
+		
+		for (Armadura armr: armaduras) {
+			armrList.add(armr.getNombre());
+		}
+		gbc.gridy = 2;
+		vntPrbs.add(armrList);
+		
+		
+		
+		vntPrbs.setBackground(new Color(colorR, colorG, colorB));
+		vntPrbs.setSize(500, 500);
+		vntPrbs.setResizable(false);
+		vntPrbs.setLocationRelativeTo(null);
+		vntPrbs.setVisible(true);
 		
 	}
 	
