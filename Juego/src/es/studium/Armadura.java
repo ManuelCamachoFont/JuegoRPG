@@ -45,4 +45,8 @@ public class Armadura {
 	public void mostrarStats() {
 	    System.out.println("ARMADURA: " + getNombre() + " |RESISTENCIA:  " + getResistencia() + " |DURABILIDAD: " + getDurabilidad());
 	}
+	
+	public void reparar() {
+        this.durabilidad = 100;
+    }
 }

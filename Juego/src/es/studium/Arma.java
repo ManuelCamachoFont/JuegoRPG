@@ -58,12 +58,12 @@ public class Arma {
 		int ataque;
 		ataque = aleatorio.nextInt((maxdmg-mindmg)+1)+mindmg;
 		if (ataque <= armadura.getResistencia()){
-			armadura.setDurabilidad(armadura.getDurabilidad() - (armadura.getDurabilidad() * 5) / 100);
-			this.durabilidad = this.durabilidad - (this.durabilidad * 5) / 100;
+			armadura.setDurabilidad(armadura.getDurabilidad() - 5);
+			this.durabilidad = this.durabilidad -5;
 		}
 		else {
 			
-			armadura.setDurabilidad(armadura.getDurabilidad() - (armadura.getDurabilidad() * 10) / 100);
+			armadura.setDurabilidad(armadura.getDurabilidad() - 10);
 		}
 		
 		return ataque;
@@ -72,6 +72,10 @@ public class Arma {
 	public void mostrarStats() {
 	    System.out.println("ARMA: " + getNombre() + " |DAÑO:  " + getMindmg() + " ~ " + getMaxdmg() + " |DURABILIDAD: " + getDurabilidad());
 	}
+	
+	public void reparar() {
+        this.durabilidad = 100;
+    }
 
 
 }
